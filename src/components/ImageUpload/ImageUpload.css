@@ -2,17 +2,22 @@
   display: flex;
   flex-direction: column;
   width: 60%;
-  /* margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px; */
-  margin: 10px auto;
-  /* position: fixed;
-  bottom: 0; */
-  /* background-color: white;
-  border-top: 1px solid lightgray; */
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0, 255, 255, 0.425);
+  padding: 0.5rem 2rem 2rem;
+  border-radius: 20px;
 }
 
 .imageupload__progress {
   width: 100%;
+  margin: 0 auto;
+}
+
+.imageupload__textInput {
+  margin: 0 auto;
+}
+
+.imageupload__pictInput {
+  margin: 0 auto;
 }
