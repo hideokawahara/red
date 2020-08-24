@@ -51,7 +51,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
 
       <div className="post__comments">
         {comments.map((comment) => (
-          <p>
+          <p key={comment.timestamp}>
             <strong>{comment.username}</strong> {comment.text}
           </p>
         ))}
