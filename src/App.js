@@ -56,7 +56,7 @@ function App() {
      };
    }, [user, username]);
 
-
+  // 投稿が増えると下記のコードが動く
   useEffect(() => {
     // なぜこれがdbでいけないの？
     db.db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
@@ -151,7 +151,7 @@ function App() {
         {user ? (
           <div className="app__loginContainer">
             <Button onClick={() => auth.auth.signOut()}>ログアウト</Button>
-            {/* <div className="headerUsername">{username}</div> */}
+            <div className="headerUsername">{user.displayName}</div>
           </div>
         ) : (
           <div className="app__loginContainer">
