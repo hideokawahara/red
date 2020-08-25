@@ -1,12 +1,15 @@
 .post {
   background-color: white;
-  max-width: 500px;
+  max-width: 200px;
+  /* max-height: 300px; */
   border: 1px solid lightgray;
   margin-bottom: 45px;
 }
 
 .post__image {
-  width: 100%;
+  /* width: 100%; */
+  /* max-width: 50%; */
+  width: 200px;
   object-fit: contain;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
@@ -49,3 +52,15 @@
    color: #6082a3;
    background-color: transparent;
  }
+
+@media (min-width: 35rem) {
+  .post {
+    max-width: 500px;
+    
+  }
+
+  .post__image {
+    width: 100%;
+
+  }
+}

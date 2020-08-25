@@ -18,8 +18,28 @@
 
 .imageupload__textInput {
   margin: 0 auto;
+  height: 20px;
+  width: 100%;
 }
 
 .imageupload__pictInput {
-  margin: 0 auto;
+  margin: 1rem auto;
+  /* background-color: aquamarine; */
+  /* height: 10px;
+  width: 100%; */
+}
+
+/* input #file-upload-button {
+  background-color: blue;
+} */
+
+/* .imageupload__pictInput label {
+  background-color: blue;
+} */
+
+.uploadButton span {
+  background-color: rgba(0, 255, 98, 0.308);
+  color: rgb(255, 6, 143);
+  font-weight: bold;
+  border-radius: 20px;
 }
