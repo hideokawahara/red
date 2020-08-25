@@ -78,7 +78,8 @@ function App() {
           });
         })
         .catch((error) => alert(error.message));
-      setOpen(false);
+    setOpen(false);
+    alert('ご登録ありがとうございます！')
   }
 
   const signIn = (event) => {
@@ -87,6 +88,7 @@ function App() {
       .signInWithEmailAndPassword(email, password)
       .catch((error) => alert(error.message));
     setOpenSignIn(false);
+    alert('ログイン成功！')
   };
 
   return (
