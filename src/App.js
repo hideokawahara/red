@@ -77,18 +77,18 @@ function App() {
             displayName: username,
           });
         })
+        .then(() => alert('ご登録ありがとうございます！'))
         .catch((error) => alert(error.message));
     setOpen(false);
-    alert('ご登録ありがとうございます！')
   }
 
   const signIn = (event) => {
     event.preventDefault();
     auth.auth
       .signInWithEmailAndPassword(email, password)
+      .then(() => alert('ログイン成功！'))
       .catch((error) => alert(error.message));
     setOpenSignIn(false);
-    alert('ログイン成功！')
   };
 
   return (
