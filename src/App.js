@@ -7,8 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Button, Input } from '@material-ui/core';
 import logo from './logo.png'
 import ImageUpload from './components/ImageUpload/ImageUpload';
-// import firebase from "firebase";
-import InstagramEmbed from 'react-instagram-embed'
 
 
 function getModalStyle() {
@@ -44,21 +42,6 @@ function App() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState(null)
-
-  // useEffect(() => {
-  //   const unsubscribe =firebase.auth().onAuthStateChanged((authUser) => {
-  //     if (authUser) {
-  //       console.log(authUser);
-  //       setUser(authUser);
-  //     } else {
-  //       setUser(null);
-  //     }
-  //   })
-  //   return () => {
-  //     unsubscribe();
-  //   }
-  // }, [user, username]);
-
    useEffect(() => {
      const unsubscribe = auth.auth.onAuthStateChanged((authUser) => {
        if (authUser) {
@@ -73,7 +56,7 @@ function App() {
      };
    }, [user, username]);
 
-
+  // 投稿が増えると下記のコードが動く
   useEffect(() => {
     // なぜこれがdbでいけないの？
     db.db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
@@ -94,31 +77,16 @@ function App() {
             displayName: username,
           });
         })
+        .then(() => alert('ご登録ありがとうございます！'))
         .catch((error) => alert(error.message));
-      setOpen(false);
-    // firebase.auth()
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .then((authUser) => {
-    //     return authUser.user.updateProfile({
-    //       displayName: username
-    //     })
-    //   })
-    //   .catch((error) => alert(error.message));
-    // setOpen(false);
+    setOpen(false);
   }
-
-  // const signIn = (event) => {
-  //   event.preventDefault();
-  //   firebase.auth()
-  //     .signInWithEmailAndPassword(email, password)
-  //     .catch((error) => alert(error.message))
-  //   setOpenSignIn(false)
-  // }
 
   const signIn = (event) => {
     event.preventDefault();
     auth.auth
       .signInWithEmailAndPassword(email, password)
+      .then(() => alert('ログイン成功！'))
       .catch((error) => alert(error.message));
     setOpenSignIn(false);
   };
@@ -183,7 +151,10 @@ function App() {
       <div className="app__header">
         <img className="app__headerImage" src={logo} alt="" />
         {user ? (
-          <Button onClick={() => auth.auth.signOut()}>ログアウト</Button>
+          <div className="app__loginContainer">
+            <Button onClick={() => auth.auth.signOut()}>ログアウト</Button>
+            <div className="headerUsername">{user.displayName}</div>
+          </div>
         ) : (
           <div className="app__loginContainer">
             <Button onClick={() => setOpenSignIn(true)}>ログイン</Button>
@@ -206,18 +177,7 @@ function App() {
           ))}
         </div>
         <div className="app__postsRight">
-          <InstagramEmbed
-            url="https://www.instagram.com/p/B0iZESUgp98/"
-            maxWidth={320}
-            hideCaption={false}
-            containerTagName="div"
-            protocol=""
-            injectScript
-            onLoading={() => {}}
-            onSuccess={() => {}}
-            onAfterRender={() => {}}
-            onFailure={() => {}}
-          />
+     
         </div>
       </div>
       {user?.displayName ? (

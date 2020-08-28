@@ -55,10 +55,10 @@ function ImageUpload({username}) {
   return (
     <div className="imageupload">
       <progress className="imageupload__progress" value={progress} max="100" />
-      <input type="text" placeholder='投稿しよう！' onChange={event => setCaption(event.target.value)} value={caption} />
-      <input type="file" onChange={handleChange} />
-      <Button onClick={handleUpload}>
-        アップロード
+      <input type="text" className="imageupload__textInput" placeholder='好きなコメディを投稿しよう！' onChange={event => setCaption(event.target.value)} value={caption} />
+      <input type="file" className="imageupload__pictInput" onChange={handleChange} />
+      <Button onClick={handleUpload} className="uploadButton">
+        red
       </Button>
     </div>
   )
