@@ -14,9 +14,9 @@
   display: flex;
   justify-content: center;
 }
- .app__postsRight {
+ /* .app__postsRight {
    margin-left: 20px;
- }
+ } */
 
 .app__header {
   position: sticky;

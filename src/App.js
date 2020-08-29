@@ -41,7 +41,7 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
    useEffect(() => {
      const unsubscribe = auth.auth.onAuthStateChanged((authUser) => {
        if (authUser) {
@@ -177,7 +177,6 @@ function App() {
           ))}
         </div>
         <div className="app__postsRight">
-     
         </div>
       </div>
       {user?.displayName ? (
