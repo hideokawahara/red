@@ -99,9 +99,6 @@ function App() {
 
 
   const findTasks = posts.filter(task => {
-    // return task.post.caption === searchWord;
-    // return task.toLowerCase().search(searchWord.toLowerCase()) !== -1;
-    // return task.post.caption === task.search(searchWord);
     return task.post.caption.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
   });
 
@@ -185,16 +182,6 @@ function App() {
 
       <div className="app__posts">
         <div className="app__postsLeft">
-          {/* {posts.map(({ id, post }) => (
-            <Post
-              key={id}
-              postId={id}
-              user={user}
-              username={post.username}
-              caption={post.caption}
-              imageUrl={post.imageUrl}
-            />
-          ))} */}
           {searchLength ? (
             findTasks.map(({ id, post }) => (
               <Post
@@ -223,7 +210,6 @@ function App() {
           <input
             type="text"
             placeholder="検索してみよう！"
-            //値が変わるたびにhandleChangeを動かす
             onChange={handleChange}
             className="searchWord"
           />
