@@ -41,7 +41,8 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+  const [searchWord, setSearchWord] = useState("");
    useEffect(() => {
      const unsubscribe = auth.auth.onAuthStateChanged((authUser) => {
        if (authUser) {
@@ -91,6 +92,21 @@ function App() {
     setOpenSignIn(false);
   };
 
+  const handleChange = e => {
+    setSearchWord(e.target.value);
+  };
+
+
+  const findTasks = posts.filter(task => {
+    return task.post.caption.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
+  });
+
+  const searchLength = findTasks.length !== 0
+
+  console.log({ findTasks })
+  console.log(findTasks.length)
+  console.log(searchLength)
+    
   return (
     <div className="App">
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -165,19 +181,40 @@ function App() {
 
       <div className="app__posts">
         <div className="app__postsLeft">
-          {posts.map(({ id, post }) => (
-            <Post
-              key={id}
-              postId={id}
-              user={user}
-              username={post.username}
-              caption={post.caption}
-              imageUrl={post.imageUrl}
-            />
-          ))}
+          {searchLength ? (
+            findTasks.map(({ id, post }) => (
+              <Post
+                key={id}
+                postId={id}
+                user={user}
+                username={post.username}
+                caption={post.caption}
+                imageUrl={post.imageUrl}
+              />
+            ))
+          ) : (
+              posts.map(({ id, post }) => (
+                <Post
+                  key={id}
+                  postId={id}
+                  user={user}
+                  username={post.username}
+                  caption={post.caption}
+                  imageUrl={post.imageUrl}
+                />
+              ))
+            )}
         </div>
         <div className="app__postsRight">
-     
+          <input
+            type="text"
+            placeholder="検索してみよう！"
+            onChange={handleChange}
+            className="searchWord"
+          />
+          <div className="">
+            
+          </div>
         </div>
       </div>
       {user?.displayName ? (

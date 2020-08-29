@@ -13,10 +13,12 @@
   padding-bottom: 100px;
   display: flex;
   justify-content: center;
+  flex-direction: column-reverse;
+  margin-left: auto;
 }
- .app__postsRight {
+ /* .app__postsRight {
    margin-left: 20px;
- }
+ } */
 
 .app__header {
   position: sticky;
@@ -52,7 +54,16 @@
   font-size: 1.5rem;
 }
 
-.headerUsername {
-  /* margin-top: 10px; */
-  /* display: inline-block !important; */
+.searchWord {
+  position: fixed;
+  right: 15%;
+}
+
+@media (min-width: 35rem) {
+  .app__posts {
+    flex-direction: row;
+      
+    }
+
+ 
 }
