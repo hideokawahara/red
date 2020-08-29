@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Button, Input } from '@material-ui/core';
 import logo from './logo.png'
 import ImageUpload from './components/ImageUpload/ImageUpload';
+// import Search from './components/Search/Search';
 
 
 function getModalStyle() {
@@ -42,6 +43,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState(null);
+  const [searchWord, setSearchWord] = useState("");
    useEffect(() => {
      const unsubscribe = auth.auth.onAuthStateChanged((authUser) => {
        if (authUser) {
@@ -91,6 +93,20 @@ function App() {
     setOpenSignIn(false);
   };
 
+  const handleChange = e => {
+    setSearchWord(e.target.value);
+  };
+
+
+  const findTasks = posts.filter(task => {
+    // return task.post.caption !== findTaskId;
+    return task.post.caption === searchWord;
+  });
+
+  const movieList = findTasks
+
+  console.log(findTasks);
+  
   return (
     <div className="App">
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -177,7 +193,21 @@ function App() {
           ))}
         </div>
         <div className="app__postsRight">
+          <input
+            type="text"
+            placeholder="SearchWord"
+            //値が変わるたびにhandleChangeを動かす
+            onChange={handleChange}
+          />
+          <div className="">
+            <ul>
+              {movieList.map(({ id, post }) => (
+                <li key={id}>{post.caption}</li>
+              ))}
+            </ul>
+          </div>
         </div>
+
       </div>
       {user?.displayName ? (
         <ImageUpload username={user.displayName} />

@@ -32,7 +32,7 @@ redは海外コメディ映画情報共有アプリケーションです。
 
 `$ npm install`
 
-`$ yarn dev`
+`$ yarn start`
 
 # Note
  
