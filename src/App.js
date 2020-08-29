@@ -105,8 +105,12 @@ function App() {
     return task.post.caption.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
   });
 
-  console.log(findTasks);
-  
+  const searchLength = findTasks.length !== 0
+
+  console.log({ findTasks })
+  console.log(findTasks.length)
+  console.log(searchLength)
+    
   return (
     <div className="App">
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -181,7 +185,7 @@ function App() {
 
       <div className="app__posts">
         <div className="app__postsLeft">
-          {posts.map(({ id, post }) => (
+          {/* {posts.map(({ id, post }) => (
             <Post
               key={id}
               postId={id}
@@ -190,24 +194,45 @@ function App() {
               caption={post.caption}
               imageUrl={post.imageUrl}
             />
-          ))}
+          ))} */}
+          {searchLength ? (
+            findTasks.map(({ id, post }) => (
+              <Post
+                key={id}
+                postId={id}
+                user={user}
+                username={post.username}
+                caption={post.caption}
+                imageUrl={post.imageUrl}
+              />
+            ))
+          ) : (
+              posts.map(({ id, post }) => (
+                <Post
+                  key={id}
+                  postId={id}
+                  user={user}
+                  username={post.username}
+                  caption={post.caption}
+                  imageUrl={post.imageUrl}
+                />
+              ))
+            )}
         </div>
         <div className="app__postsRight">
           <input
             type="text"
-            placeholder="SearchWord"
+            placeholder="検索してみよう！"
             //値が変わるたびにhandleChangeを動かす
             onChange={handleChange}
+            className="searchWord"
           />
           <div className="">
             <ul>
-              {findTasks.map(({ id, post }) => (
-                <li key={id}>{post.caption}</li>
-              ))}
+      
             </ul>
           </div>
         </div>
-
       </div>
       {user?.displayName ? (
         <ImageUpload username={user.displayName} />
