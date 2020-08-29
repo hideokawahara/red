@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Button, Input } from '@material-ui/core';
 import logo from './logo.png'
 import ImageUpload from './components/ImageUpload/ImageUpload';
-// import Search from './components/Search/Search';
 
 
 function getModalStyle() {
@@ -214,9 +213,7 @@ function App() {
             className="searchWord"
           />
           <div className="">
-            <ul>
-      
-            </ul>
+            
           </div>
         </div>
       </div>
