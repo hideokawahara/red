@@ -99,11 +99,11 @@ function App() {
 
 
   const findTasks = posts.filter(task => {
-    // return task.post.caption !== findTaskId;
-    return task.post.caption === searchWord;
+    // return task.post.caption === searchWord;
+    // return task.toLowerCase().search(searchWord.toLowerCase()) !== -1;
+    // return task.post.caption === task.search(searchWord);
+    return task.post.caption.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
   });
-
-  const movieList = findTasks
 
   console.log(findTasks);
   
@@ -201,7 +201,7 @@ function App() {
           />
           <div className="">
             <ul>
-              {movieList.map(({ id, post }) => (
+              {findTasks.map(({ id, post }) => (
                 <li key={id}>{post.caption}</li>
               ))}
             </ul>
