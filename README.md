@@ -4,8 +4,8 @@ redは海外コメディ映画情報共有アプリケーションです。
 おすすめの映画を投稿したり、自分の知らない映画との遭遇出来る！
 
 # DEMO
- 
-
+[![thumbnail](https://pbs.twimg.com/ext_tw_video_thumb/1300064558954852352/pu/img/7VRFu20QgQhMWSVf.jpg)](https://twitter.com/hinoizuryu27/status/1300064737229594624/video/1)
+デモ動画はTwitterのリンクを載せています。そちらで実際の動作をご確認いただけます。
  
 # Features
  
