@@ -30,7 +30,7 @@ redは海外コメディ映画情報共有アプリケーションです。
 
 `$ cd red`
 
-`$ npm install`
+`$ yarn add`
 
 `$ yarn start`
 
