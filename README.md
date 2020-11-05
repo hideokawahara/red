@@ -5,7 +5,6 @@ redは海外コメディ映画情報共有アプリケーションです。
 アプリ名の意味の語源は、読ませるという意味を持つ『read』の読みと文字を少しもじったものです。
 
 # DEMO
-[![thumbnail](https://pbs.twimg.com/ext_tw_video_thumb/1300064558954852352/pu/img/7VRFu20QgQhMWSVf.jpg)](https://twitter.com/hinoizuryu27/status/1300064737229594624/video/1)
 デモ動画はTwitterのリンクを載せています。そちらで実際の動作をご確認いただけます。
 
 # Description
